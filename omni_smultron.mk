@@ -15,8 +15,11 @@
 # Inherit device configuration
 $(call inherit-product, device/semc/smultron/full_smultron.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Inherit some common omni stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
@@ -38,11 +41,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="ST15i-user 4.0.4 4.1.B.0.587 tL1_3w test-keys"
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_smultron
+PRODUCT_NAME := omni_smultron
 PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
-
-# Release name
-PRODUCT_RELEASE_NAME := smultron
-
-# Custom tag for unofficial builds
-TARGET_UNOFFICIAL_BUILD_ID := LegacyXperia
